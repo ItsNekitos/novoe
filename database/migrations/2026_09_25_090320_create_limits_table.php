@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('balance_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->float('max_summ');
+            $table->float('max_summ')->default(0.00);
             $table->date('rashod_limit_date');
             $table->timestamps();
         });

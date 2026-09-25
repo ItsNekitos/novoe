@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
-            $table->float('save_amount');
+            $table->float('save_amount')->default(0.00);
             $table->date('save_date');
             $table->timestamps();
         });
