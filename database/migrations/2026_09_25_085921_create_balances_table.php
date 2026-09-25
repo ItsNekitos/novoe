@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('balances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->float('balance');
+            $table->float('balance')->default(0.00);
             $table->timestamps();
         });
     }
