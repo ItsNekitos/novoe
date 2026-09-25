@@ -23,12 +23,4 @@ Route::post('/authorization', [UserController::class, "authorization"]); //ok
 
 Route::middleware('auth:sanctum')->group(function () {
         Route::get('/logout', [UserController::class, "logout"]); //ok
-        Route::post('/files', [FileController::class, "add"]); //ok
-        Route::get('/files/disk', [FileController::class, "viewfiles"]);
-        Route::patch('/files/{file_id}', [FileController::class, "rename"]); //ok
-        Route::delete('/files/{file_id}', [FileController::class, "delete"]); //ok
-        Route::get('/files/{file_id}', [FileController::class, "download"]); //ok
-        Route::post('/files/{file_id}/accesses', [FileAccessController::class, "addaccess"]); //ok
-        Route::delete('/files/{file_id}/accesses', [FileAccessController::class, "removeaccess"]);//ok
-        Route::get('/shared', [FileAccessController::class, "shared"]); //ok
     });

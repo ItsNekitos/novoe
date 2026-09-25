@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('file_accesses', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->foreignId("file_id")->constrained()
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->foreignId('balance_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->float('amount');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('file_accesses');
+        Schema::dropIfExists('transactions');
     }
 };
